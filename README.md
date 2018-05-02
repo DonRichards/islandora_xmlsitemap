@@ -44,7 +44,7 @@ Objects must be publicly (anonymously) available to be included in the XML Sitem
 1. Ensure that the anonymous Drupal user has the "View repository objects" permission (admin/people/permissions).
 1. XACML permissions override the Drupal "View repository objects" permission.  Make sure that there are no extra XACML permissions on the object.
 
-Please also note that objects marked as "inactive", whether manually or by using the [Simple Workflow](https://github.com/Islandora/islandora_simple_workflow) module, will still be indexed by default.
+Please also note that objects marked as "inactive", whether manually or by using the [Simple Workflow](https://github.com/Islandora/islandora_simple_workflow) module, will still be indexed by default. To prevent add system from adding "inactive" submissions go to the Islandora configuration page (admin/islandora/configure) and check "Lock down inactive and deleted objects". This prevent new "inactive" submissions from being added to the sitemap but will not retroactively remove existing entries. To manually remove old entries go to Sitemap Custom Links Page (admin/config/search/xmlsitemap/custom). After any changes to sitemap go to Sitemap Custom List Page (admin/config/search/xmlsitemap) to "Update cached files".
 
 Larger sites with greater than 100,000 objects may encounter issues during the sitemap building process with the default configuration, such as the process hanging around a specific number indefinitely or exiting the process entirely before completion. These users may want to try unchecking the "Prefetch URL aliases during sitemap generation" option found on the xmlsitemap admin configuration page (/admin/config/search/xmlsitemap/settings) and trying the process again.
 
